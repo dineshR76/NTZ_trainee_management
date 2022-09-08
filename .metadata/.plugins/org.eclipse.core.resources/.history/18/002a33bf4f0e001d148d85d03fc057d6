@@ -1,0 +1,26 @@
+package com.example.url.model;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
+import com.example.url.List;
+
+public class CategoryKeyword
+{
+		 
+	Map<String, ArrayList<String>> data = new HashMap<String, ArrayList<String>>();
+
+public Map<String, ArrayList<String>> getData() {
+		return data;
+	}
+
+	public void setData(Map<String, ArrayList<String>> data) {
+		this.data = data;
+	}
+
+
+
+
+
+}

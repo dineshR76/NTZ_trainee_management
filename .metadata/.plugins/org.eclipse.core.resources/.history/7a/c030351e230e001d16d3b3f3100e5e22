@@ -1,0 +1,27 @@
+package com.example.url.model;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class CategoryKeyword
+{
+		 
+private Integer keyid;
+private String catg;
+
+HashMap<Integer, String> kw=   new HashMap<Integer, String>();
+
+
+public void addkw(Integer keyid, String catg)
+{
+kw.put(keyid,catg);
+}
+
+
+public void display()
+{
+	System.out.println(kw);
+}
+
+
+}

@@ -1,0 +1,114 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymleaf.org">
+<head>
+    <title>Netsmartz</title>
+<link rel="stylesheet" href="../csss/admindash.css" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Flamenco" rel="stylesheet">
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css"> -->
+
+</head>
+<body>
+    <header>
+      <nav>
+        <div class="row clearfix">
+          
+            <ul class="main-nav" animate slideInDown>
+                <li><a href="home.html">HOME</a></li>
+                <li><a href="aboutus.php">ABOUT</a></li>
+                <li><a href="contactus.php">CONTACT</a></li>
+                
+          </ul>
+        </div>
+      </nav>
+      <div class="main-content-header">
+        <h1>Netsmartz Trainee Management System</h1>
+       <h3><a th:href="@{/addtrainee}">-> Trainee Detail </a></h3>
+       <h3><a th:href="@{/showtrainers}">-> Trainers Detail</a></h3>
+       <h3><a th:href="@{/showlang}">-> Languages available</a></h3>
+      </div>
+    </header>
+    
+</body>
+</html>
+<style>
+    *{
+    margin:0px;
+    padding:0px;
+    box-sizing: border-box;
+}
+body{
+    font-size: 30px;
+    overflow-x: hidden;
+    color: white;
+    font-family: 'Flamenco', cursive;
+}
+header{
+    background-image:linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)),url(images/Net_smart_eployee.webp);
+    height:100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.clearfix:after{
+    content: " ";
+    /* visibility: ; */
+    display: block;
+    height: 9px;
+    clear: both;
+}
+.row{
+    max-width: 1180px;
+    margin:0 auto;
+}
+
+.main-nav{
+    float: right;
+    margin-top: 30px;
+}
+.main-nav li{
+    display: inline-block;
+    list-style: none;
+    margin-left: 40px;
+}
+.main-nav li a{
+    padding: 5px 2px;
+    color:#fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 90%;
+    font-weight: 100;
+}
+.main-nav li a:hover{
+    color: yellow;
+    font-weight: 1000;
+}
+h1{
+    margin-left: 200px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    text-shadow:  #000 0px 0px 3px,   #000 0px 0px 3px,   #000 0px 0px 5px;
+   
+}
+h3{
+    margin-bottom: 1rem;
+    margin-left: 450px;
+    margin-top: 10px;
+}
+.main-content-header{
+    border-top: 2px solid white;
+}
+
+.main-content-header a{
+    text-decoration: none;
+    color: black;   
+    text-shadow:  #ff0066 0px 0px 1px,   #ff0066 0px 0px 1px,   #ff0066 0px 0px 1px;
+}
+.main-content-header a:hover{
+    text-decoration: none;
+    text-decoration: none;
+    color: yellow;   
+    text-shadow:  #000 0px 0px 2px,   #000 0px 0px 2px,   #000 0px 0px 2px;
+
+}
+</style>

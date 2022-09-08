@@ -1,0 +1,22 @@
+package com.example.url.model;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class CategoryKeyword
+{
+		 
+private String category;
+private String keyword;
+
+
+public CategoryKeyword(String category, String keyword) {
+	super();
+	this.category = category;
+	this.keyword = keyword;
+}
+
+HashMap<Integer, String> kw=   new HashMap<Integer, String>();
+
+		 
+}

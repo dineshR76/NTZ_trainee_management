@@ -1,0 +1,19 @@
+package com.example.url;
+import java.io.IOException;
+import java.net.URL;
+import java.util.Scanner;
+
+public class urldecode {
+
+    public static void main(String[] args) throws IOException {
+        URL url = new URL("http://www.example.com/");
+
+        String content;
+        try (Scanner scanner = new Scanner(url.openStream(), "UTF-8")) {
+            content = scanner.useDelimiter("\\A")
+                             .next();
+        }
+        System.out.println(content);
+    }
+}
+

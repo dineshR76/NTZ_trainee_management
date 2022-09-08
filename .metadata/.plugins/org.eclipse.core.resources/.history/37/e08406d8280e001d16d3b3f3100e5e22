@@ -1,0 +1,66 @@
+package com.example.url;
+import java.io.IOException;
+import java.util.ArrayList;
+
+import org.jsoup.Connection;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+
+import com.example.url.model.CategoryKeyword;
+public class urldecode 
+{
+	
+	public ArrayList<String> UrlText() throws IOException
+	{
+		String page = "https://edition.cnn.com/sport";
+	      //Connecting to the web page
+	      Connection conn = Jsoup.connect(page);
+	      //executing the get request
+	      Document doc = conn.get();
+	      //Retrieving the contents (body) of the web page
+	      String result = doc.body().text();
+	      
+	      String[] parts = result.split("[\\W]");
+	      
+	      ArrayList<String> list= new ArrayList<String>();
+	      
+	      for(String x:parts)
+	       {
+	    	 
+	           list.add(x);
+	       }
+	      
+	      return list;
+	}
+	
+	
+//	 static CategoryKeyword ck = new CategoryKeyword();
+//	 
+//	 void add()
+//     {
+//
+//     	
+//     	ck.addkw(1, "starwars");
+//     	ck.addkw(2, "nba");
+//     	ck.addkw(3, "sports");
+//     	ck.display();
+//     	
+//     }
+	 
+	 
+   public static void main(String args[]) throws IOException {
+	   
+      urldecode d= new urldecode();
+     CategoryKeyword ck = new CategoryKeyword();
+//      	System.out.println(d.UrlText());
+     
+     ArrayList<String> list1=new ArrayList<String>();
+     
+     list1=d.UrlText();
+      
+      
+      	
+      }
+      
+      
+   }

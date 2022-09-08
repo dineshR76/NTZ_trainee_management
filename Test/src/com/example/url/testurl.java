@@ -1,0 +1,38 @@
+package com.example.url;
+
+import java.io.IOException;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.Scanner;
+public class testurl {
+   public static void main(String args[]) throws IOException {
+      //Instantiating the URL class
+      URL url = new URL("https://edition.cnn.com/sport");
+      //Retrieving the contents of the specified page
+      Scanner sc = new Scanner(url.openStream());
+      //Instantiating the StringBuffer class to hold the result
+      StringBuffer sb = new StringBuffer();
+      while(sc.hasNext()) {
+         sb.append(sc.next());
+         //System.out.println(sc.next());
+      }
+      //Retrieving the String from the String Buffer object
+      String result = sb.toString();  
+//      System.out.println(result);
+      //Removing the HTML tags
+//      result = result.replaceAll("<[^>]*>", "");
+      
+      String[] parts = result.split("[\\W]");
+    
+    ArrayList<String> l= new ArrayList<String>();
+    
+    for(String x:parts)
+     {
+  	 
+         l.add(x);
+     }
+    System.out.print(l);
+      
+//      System.out.println("Contents of the web page: "+result);
+   }
+}

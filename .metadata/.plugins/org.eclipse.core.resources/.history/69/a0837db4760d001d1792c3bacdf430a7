@@ -1,0 +1,5 @@
+package com.example.manage.config;
+
+public class SwaggerConfig {
+
+}

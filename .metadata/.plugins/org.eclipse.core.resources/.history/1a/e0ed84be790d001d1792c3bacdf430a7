@@ -1,0 +1,135 @@
+package com.example.manage.controller;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
+import com.example.manage.dao.LanguagesRepo;
+import com.example.manage.dao.TraineeRepo;
+import com.example.manage.dao.TrainerRepo;
+import com.example.manage.entity.Languages;
+import com.example.manage.entity.Trainee;
+import com.example.manage.entity.Trainer;
+import com.example.manage.services.LanguageService;
+
+@Controller
+public class LanguageController
+{
+	@Autowired
+	private LanguageService langserv;
+	
+	
+	@Autowired
+	private TrainerRepo trainerrepo;
+	
+	@Autowired
+	LanguagesRepo langrepo;
+	
+	@Autowired TraineeRepo traineerepo;
+
+//	@GetMapping("/lang")
+//	public List<Languages> getLang()
+//	{
+//	
+//	return this.langserv.getAllLang();
+//	}
+	
+	@GetMapping("/showlang")
+	public String getTrain(Model model)  
+	{
+	
+	List<Languages> lang= (List<Languages>) langrepo.findAll();
+	
+	model.addAttribute("lang", lang);
+	
+	return "language";
+	}
+	
+	
+	//add
+	@GetMapping("/addlang")
+	public String addtrainer(Model m)
+	{
+		List<Trainer> trainerlist= trainerrepo.findAll();
+		m.addAttribute("trainerlist",trainerlist);
+		
+		List<Trainee> traineelist= (List<Trainee>) traineerepo.findAll();
+		m.addAttribute("traineelist",traineelist);
+		
+		m.addAttribute("lang", new Languages());
+		return "addlang";
+	}
+	
+	
+	
+	@PostMapping("/newlang")
+	public String addTrainer(Languages lang,Model m)
+	{
+		
+		m.addAttribute("result", this.langserv.addLang(lang));
+	
+		
+		return "redirect:/showlang";
+	}
+	
+	
+	
+	//update
+	@GetMapping("/lang/edit/{id}")
+	public String updateTrainer(Languages lang,@PathVariable("id") int id, Model m)
+	{
+		
+		List<Trainer> trainerlist= trainerrepo.findAll();
+		m.addAttribute("trainerlist",trainerlist);
+		
+		List<Trainee> traineelist= (List<Trainee>) traineerepo.findAll();
+		m.addAttribute("traineelist",traineelist);
+		
+		lang= langrepo.findById(id).get();
+		m.addAttribute("lang",lang);
+		
+		
+		return "addlang";
+	}
+	
+	
+	
+	@GetMapping("/lang/{id}")
+	public Optional<Languages> getLang(@PathVariable("id") int lang_id)
+	{
+		return langserv.getLangById(lang_id);
+	}
+	
+//	
+//	@PostMapping("/lang")
+//	public Languages addLang(@RequestBody Languages lang)
+//	{
+//		Languages l=this.langserv.addLang(lang);
+//		return l;
+//	}
+	
+	@GetMapping("/lang/delete/{id}")
+	public String deleteLang(@PathVariable("id") int id)
+	{
+		langrepo.deleteById(id);
+//		this.trainserv.deleteTrainer(trainid);
+		
+		return "redirect:/showlang";
+	}
+	
+	@PutMapping("/lang/{id}")
+	public Languages updateLang(@RequestBody Languages lang,@PathVariable("id") int lang_id)
+	{
+		this.langserv.updateLang(lang,lang_id);
+		return lang;
+	}
+}

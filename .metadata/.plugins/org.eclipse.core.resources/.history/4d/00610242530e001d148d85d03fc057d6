@@ -1,0 +1,19 @@
+package com.example.manage.Model;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
+public class CategoryKeyword 
+{
+
+	HashMap<String, ArrayList<String>> map = new HashMap<String, ArrayList<String>>();
+
+	public HashMap<String, ArrayList<String>> getMap() {
+		return map;
+	}
+
+	public void setMap(HashMap<String, ArrayList<String>> map) {
+		this.map = map;
+	}
+}

@@ -1,0 +1,17 @@
+package com.example.url.jericho;
+
+import net.htmlparser.jericho.Renderer;
+import net.htmlparser.jericho.Segment;
+import net.htmlparser.jericho.Source;
+
+public class Jericho 
+{
+	public static void main(String[] args) {
+		String html = "https://www.doviz.com/";
+				Source htmlSource = new Source(html);
+				Segment segment = new Segment(htmlSource, 0, htmlSource.length());
+				Renderer htmlRender = new Renderer(segment).setIncludeHyperlinkURLs(true);
+				System.out.println(htmlRender);
+	}
+	
+}

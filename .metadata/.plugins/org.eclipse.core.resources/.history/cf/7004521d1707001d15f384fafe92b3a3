@@ -1,0 +1,74 @@
+package com.example.manage.entity;
+
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="skillDetails22")
+public class Languages 
+{
+		@Id
+		@GeneratedValue(strategy = GenerationType.AUTO)
+		private int id;
+		
+	
+		private String language;
+		
+		
+		
+		@ManyToMany
+		@JoinTable(name="lang_skill",
+					joinColumns=@JoinColumn(name="skill_id"),
+					inverseJoinColumns= @JoinColumn(name="train_id"))
+	private Set<Trainer> trainer= new HashSet<>();
+
+
+
+		public int getId() {
+			return id;
+		}
+
+
+
+		public void setId(int id) {
+			this.id = id;
+		}
+
+
+
+		public String getLanguage() {
+			return language;
+		}
+
+
+
+		public void setLanguage(String language) {
+			this.language = language;
+		}
+
+
+
+		public Set<Trainer> getTrainer() {
+			return trainer;
+		}
+
+
+
+		public void setTrainer(Set<Trainer> trainer) {
+			this.trainer = trainer;
+		}
+		
+
+		
+		
+		
+}

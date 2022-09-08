@@ -1,0 +1,36 @@
+package com.example.url.model;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
+
+public class CategoryKeyword
+{
+	
+public static void main(String[] args) {
+	
+	HashMap<String, ArrayList<String>> map = new HashMap<String, ArrayList<String>>();
+
+	ArrayList<String> keywords = new ArrayList<String>();
+	keywords.add("starwars");
+	keywords.add("star wars");
+	keywords.add("starwar");
+	keywords.add("r2d2");
+
+	map.put("car", carList);
+
+	ArrayList<String> fruitList = new ArrayList<String>();
+	fruitList .add("apple");
+	fruitList .add("banana");
+
+	map.put("fruit", fruitList );
+	    
+	    
+	    System.out.println(map);
+}	
+	
+
+
+
+}

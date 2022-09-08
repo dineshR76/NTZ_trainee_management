@@ -1,0 +1,32 @@
+package com.example.url.controller;
+import com.example.url.model.*;
+import com.example.url.*;
+public class Controller 
+{
+	CategoryKeyword ck = new CategoryKeyword();
+void add()
+{
+
+	
+	ck.addkw(1, "starwars");
+	ck.addkw(2, "nba");
+	ck.addkw(3, "sports");
+	ck.display();
+	
+}
+public static void main(String[] args) 
+{
+	
+	Controller c =new Controller();
+	c.add();
+	
+	urldecode d= new urldecode();
+	
+	
+	
+}
+
+
+
+
+}

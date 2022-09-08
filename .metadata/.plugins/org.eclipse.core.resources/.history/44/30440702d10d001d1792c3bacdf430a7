@@ -1,0 +1,25 @@
+package com.example.url;
+
+import java.io.IOException;
+import org.jsoup.Connection;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+public class urldecode {
+   public static void main(String args[]) throws IOException {
+      String page = "https://edition.cnn.com/sport";
+      //Connecting to the web page
+      Connection conn = Jsoup.connect(page);
+      //executing the get request
+      Document doc = conn.get();
+      //Retrieving the contents (body) of the web page
+      String result = doc.body().text();
+      
+      String[] parts = result.split("[\\W]");
+
+      for(String x:parts)
+       {
+           System.out.println(x);
+       }
+//      System.out.println(result);
+   }
+}

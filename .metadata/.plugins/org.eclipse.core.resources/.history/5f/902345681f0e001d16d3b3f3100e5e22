@@ -1,0 +1,16 @@
+package com.example.url.controller;
+import com.example.url.model.*;
+public class Controller 
+{
+
+void add()
+{
+CategoryKeyword ck = new CategoryKeyword(1, "starwars");
+	
+	ck.addkw(1, "starwars");
+	ck.addkw(2, "nba");
+	
+	ck.display();
+	
+}
+}

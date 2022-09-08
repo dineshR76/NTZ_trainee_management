@@ -1,0 +1,18 @@
+package com.example.url;
+
+import java.io.IOException;
+
+import org.jsoup.Jsoup;
+
+public class testurl {
+	public static void main(String[] args) throws IOException {
+
+		String webPage = "http://www.starwars.com";
+
+        String html = Jsoup.connect(webPage).get().html();
+
+        System.out.println(html);
+    }
+
+}
+

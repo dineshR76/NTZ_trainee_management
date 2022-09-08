@@ -1,0 +1,48 @@
+package com.example.url;
+import java.net.URL;
+import java.util.*;
+
+import org.jsoup.Jsoup;
+
+import java.io.*;
+public class url
+{
+	public static void html2text(String html)
+	{
+	   String str= Jsoup.parse(html).text();
+	   
+	   System.out.println(str);
+	    
+//	    String[] parts = str.split("[\\W]");
+//    	
+//    	for(String x: parts)
+//    	{
+//    		System.out.println(x+" ");
+//    	}	
+	}
+
+	    public static void main(String[] args)
+	    {
+	    	
+	try {
+	    URL url = new URL("https://www.starwars.com/");       
+
+	    BufferedReader in = new BufferedReader(new InputStreamReader(url.openStream()));
+	    String str; 
+	    while ((str = in.readLine()) != null) {
+	        str = in.readLine().toString();
+//	        System.out.println(str);
+	        
+	        html2text(str);
+	        
+	       
+	    }
+	    in.close();
+	} catch (Exception e) {}
+	
+	
+     
+		
+	}
+}
+

@@ -1,0 +1,88 @@
+package com.example.manage.main;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+
+import org.jsoup.Connection;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+
+import com.example.manage.Model.CategoryKeyword;
+public class Main 
+{
+	
+	public ArrayList<String> UrlText() throws IOException
+	{
+		String page = "http://www.starwars.com";
+	      //Connecting to the web page
+	      Connection conn = Jsoup.connect(page);
+	      //executing the get request
+	      Document doc = conn.get();
+	      //Retrieving the contents (body) of the web page
+	      String result = doc.body().text();
+	      
+	      String[] parts = result.split("[\\W]");
+	      
+	      ArrayList<String> list= new ArrayList<String>();
+	      
+	      for(String x:parts)
+	       {
+	    	 
+	           list.add(x);
+	       }
+	      
+	      return list;
+	}
+	
+	 
+	 
+   public static void main(String args[]) throws IOException {
+	   
+      Main d= new Main();
+     CategoryKeyword ck = new CategoryKeyword();
+//      	System.out.println(d.UrlText());
+     
+     
+//adding data to the hashmap category     
+     ArrayList<String> keywords = new ArrayList<String>();
+ 	keywords.add("starwars");
+ 	keywords.add("star wars");
+ 	keywords.add("starwar");
+ 	keywords.add("r2d2");
+ 	keywords.add("star");
+ 	
+   ck.add("starwars", keywords);
+//   	ck.display();
+   	
+   	
+     ArrayList<String> list1=new ArrayList<String>();
+     
+     list1=d.UrlText();
+      
+    //injecting the hashmap from model
+    HashMap<String, ArrayList<String>> hm= ck.getMap();
+    
+    
+//    for(Map.Entry m : hm.entrySet()){
+//        if (list1.contains(m.getValue()))
+//            System.out.println("Bingo: " + m.getKey());
+//    }
+    
+    
+//    Iterator<String> itr= list1.iterator();
+    
+//    while(itr.hasNext())
+//    {
+//    	String i=itr.next();
+//    	System.out.println(i);
+//    }
+ 
+      
+      	
+      }
+      
+      
+   }

@@ -1,0 +1,56 @@
+package com.example.manage.entity;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="languagestb")
+public class Languages 
+{
+		@Id
+		@GeneratedValue(strategy = GenerationType.AUTO)
+		private int lang_id;
+		private String language;
+		
+		@OneToOne(cascade=CascadeType.REMOVE)
+		@JoinColumn(name="fk",referencedColumnName="train_id")
+		private Trainer train;
+		
+		
+		
+		
+		public Languages(int lang_id, String language) {
+			super();
+			this.lang_id = lang_id;
+			this.language = language;
+		}
+		
+		public int getLang_id() {
+			return lang_id;
+		}
+		public void setLang_id(int lang_id) {
+			this.lang_id = lang_id;
+		}
+		public String getLanguage() {
+			return language;
+		}
+		public void setLanguage(String language) {
+			this.language = language;
+		}
+		@Override
+		public String toString() {
+			return "Languages [lang_id=" + lang_id + ", language=" + language + "]";
+		}
+		public Languages() {
+			super();
+		}
+		
+		
+		
+}

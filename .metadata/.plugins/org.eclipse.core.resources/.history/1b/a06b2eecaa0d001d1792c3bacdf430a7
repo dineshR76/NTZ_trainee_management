@@ -1,0 +1,22 @@
+package com.example.url;
+
+import java.io.IOException;
+
+import org.jsoup.Jsoup;
+
+import net.htmlparser.jericho.Renderer;
+import net.htmlparser.jericho.Segment;
+import net.htmlparser.jericho.Source;
+
+public class testurl {
+	public static void main(String[] args) throws IOException {
+
+		String html = "http://www.starwars.com";
+				Source htmlSource = new Source(html);
+				Segment segment = new Segment(htmlSource, 0, htmlSource.length());
+				Renderer htmlRender = new Renderer(segment).setIncludeHyperlinkURLs(true);
+				System.out.println(htmlRender);
+    }
+
+}
+

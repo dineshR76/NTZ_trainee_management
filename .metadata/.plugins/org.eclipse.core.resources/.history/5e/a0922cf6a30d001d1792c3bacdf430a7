@@ -1,0 +1,29 @@
+package com.example.url;
+import java.net.URL;
+import java.util.*;
+import java.io.*;
+public class url {
+
+	    public static void main(String[] args)
+	    {
+	    	String str="";
+	try {
+	    URL url = new URL("https://www.doviz.com/");       
+
+	    BufferedReader in = new BufferedReader(new InputStreamReader(url.openStream()));
+	    
+	    while ((str = in.readLine()) != null) {
+	        str = in.readLine().toString();
+	        System.out.println(str);
+	        /*str will get each time the new line, if you want to store the whole text in str 
+	           you can use concatenation (str+ = in.readLine().toString())*/
+	    }
+	    in.close();
+	} catch (Exception e) {}
+	
+		      
+		     
+		
+	}
+}
+
